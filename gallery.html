@@ -753,6 +753,48 @@ footer {
   transition: background 0.2s;
 }
 .workshop-popup-cta:hover { background: var(--saffron-light); }
+/* ─── TOP GALLERY ─── */
+.top-gallery {
+  padding: 86px 0 2rem;
+  background: var(--ivory);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.gallery-track {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-item {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  box-shadow: 0 12px 30px rgba(28,21,9,0.08);
+  border: 1px solid var(--border);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .gallery-track { justify-content: flex-start; }
+  .gallery-item { width: 280px; height: 190px; }
+  .top-gallery { padding-top: 80px; }
+}
 </style>
 </head>
 <body>
@@ -761,597 +803,58 @@ footer {
 <nav>
   <a href="https://www.rvmclasses.in" class="nav-logo">RVM <span>Classes</span></a>
   <ul class="nav-links">
-    <li><a href="#classes">Classes</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#offerings">Offerings</a></li>
+    <li><a href="index.html#classes">Classes</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#offerings">Offerings</a></li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="#contact" class="nav-cta">Enrol Now</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Enrol Now</a></li>
   </ul>
 </nav>
 
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="badge">10+ Years of Teaching Experience · Delhi</div>
-
-    <h1 class="hero-name">
-      Meenakshi
-      <em>Aggarwal</em>
-    </h1>
-
-    <div class="hero-quals">
-      M.A. &nbsp;·&nbsp; M.B.A. &nbsp;·&nbsp; Ex DU Faculty &nbsp;·&nbsp; Silver Medalist &nbsp;·&nbsp; Academic Award Winner
-      <div class="quals-row">
-        <span class="qual-chip">B.Com (Hons)</span>
-        <span class="qual-chip">MBA</span>
-        <span class="qual-chip">LLB</span>
-        <span class="qual-chip">LLM</span>
-        <span class="qual-chip">M.A.</span>
-        <span class="qual-chip">Ex DU Faculty</span>
+<!-- GALLERY SECTION -->
+<section class="gallery-page" style="padding-top: 100px; padding-bottom: 60px; min-height: 80vh; background: var(--ivory);">
+  <div class="section-inner" style="max-width: 1100px; margin: 0 auto; text-align: center;">
+    <h1 class="section-title" style="margin-bottom: 2rem;">Our Gallery</h1>
+    <p class="section-sub" style="margin: 0 auto 3rem;">Glimpses of activities, workshops, and our bright students at RVM Classes.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 0 1.5rem;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774810074051.jpg" alt="Workshop Snapshot 1" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
-    </div>
-
-    <p class="hero-tagline">
-      Expert CBSE group coaching in Maths, Science &amp; Abacus for Grade 4–10 — online &amp; offline, with small batches, AC classrooms &amp; 10+ years of experience.
-    </p>
-
-    <div class="hero-medals">
-      <div class="medal">
-        <div class="medal-icon medal-silver">🥈</div>
-        <div>DU Silver<br>Medalist</div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774810074108.jpg" alt="Workshop Snapshot 2" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
-      <div class="medal">
-        <div class="medal-icon medal-award">🏆</div>
-        <div>Academic<br>Award Winner</div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774810074119.jpg" alt="Workshop Snapshot 3" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
-      <div class="medal">
-        <div class="medal-icon" style="background:linear-gradient(135deg,#d8f3dc,#52b788)">⭐</div>
-        <div>10+ Years<br>Experience</div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774811324965.png" alt="Workshop Snapshot 4" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
-    </div>
-
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">📞 Enquire Now</a>
-      <a href="#classes" class="btn-outline">View Classes ↓</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-card">
-      <div class="card-avatar">👩‍🏫</div>
-      <div class="card-name">Meenakshi Aggarwal</div>
-      <div class="card-title">CBSE Coaching · Classes 6 to 9</div>
-
-      <div class="card-divider"></div>
-
-      <div class="card-stat-row">
-        <div class="card-stat">
-          <div class="num">4–10</div>
-          <div class="lbl">Classes Served</div>
-        </div>
-        <div class="card-stat">
-          <div class="num">CBSE</div>
-          <div class="lbl">Pattern Expert</div>
-        </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774811324990.png" alt="Workshop Snapshot 5" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
-
-      <div class="card-badges">
-        <span class="card-badge cb-saffron">🥈 Silver Medalist</span>
-        <span class="card-badge cb-saffron">🏆 Academic Award</span>
-        <span class="card-badge cb-green">✅ Ex DU Faculty</span>
-        <span class="card-badge cb-green">🔢 Maths · Science · Abacus</span>
-        <span class="card-badge cb-saffron">⭐ 10+ Yrs Experience</span>
-        <span class="card-badge cb-green">💻 Online &amp; Offline</span>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774811325007.png" alt="Workshop Snapshot 6" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
-
-      <div class="contact-row">
-        <div class="contact-item">
-          <span class="contact-icon">📞</span>
-          <span><strong>+91 7428453011</strong></span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <span>Sanchar Lok Apartment, IP Extension, Delhi</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">🏫</span>
-          <span>Small Batches · AC Classrooms</span>
-        </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774811325043.png" alt="Workshop Snapshot 7" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1);">
+        <img src="images/media__1774811325060.png" alt="Workshop Snapshot 8" style="width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(10%) contrast(1.1); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
     </div>
   </div>
 </section>
-
-<!-- CLASSES -->
-<section class="classes-bg" id="classes">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal">Classes Offered</div>
-    <h2 class="section-title reveal">Maths, Science &amp; Abacus<br>Grade 4 to 10</h2>
-    <p class="section-sub reveal">Focused group batches — online &amp; offline — following CBSE curriculum with top reference books. Small batches, AC classrooms, and personalised attention.</p>
-
-    <div class="classes-grid">
-      <div class="class-card reveal">
-        <div class="class-icon">🔢</div>
-        <div class="class-num">Abacus</div>
-        <div class="class-label">All Age Groups</div>
-        <div class="subject-list">
-          <span class="subj">Mental Maths</span>
-          <span class="subj">Speed Calculation</span>
-          <span class="subj">Concentration</span>
-          <span class="subj">Memory Skills</span>
-        </div>
-      </div>
-
-      <div class="class-card reveal">
-        <div class="class-icon">📗</div>
-        <div class="class-num">Grade 4 &amp; 5</div>
-        <div class="class-label">Foundation Stage</div>
-        <div class="subject-list">
-          <span class="subj">Mathematics</span>
-          <span class="subj">Science (EVS)</span>
-          <span class="subj">Ganita Prakash</span>
-          <span class="subj">NCERT</span>
-        </div>
-      </div>
-
-      <div class="class-card reveal">
-        <div class="class-icon">📘</div>
-        <div class="class-num">Grade 6 &amp; 7</div>
-        <div class="class-label">Concept Building</div>
-        <div class="subject-list">
-          <span class="subj">Mathematics</span>
-          <span class="subj">Science</span>
-          <span class="subj">NCERT · Exemplar</span>
-          <span class="subj">RD Sharma</span>
-          <span class="subj">Olympiad Prep</span>
-        </div>
-      </div>
-
-      <div class="class-card reveal">
-        <div class="class-icon">📙</div>
-        <div class="class-num">Grade 8 &amp; 9</div>
-        <div class="class-label">Application Focus</div>
-        <div class="subject-list">
-          <span class="subj">Mathematics</span>
-          <span class="subj">Physics · Chemistry</span>
-          <span class="subj">Biology</span>
-          <span class="subj">RD Sharma · Lakhmir Singh</span>
-          <span class="subj">Olympiad Prep</span>
-        </div>
-      </div>
-
-      <div class="class-card reveal">
-        <div class="class-icon">📕</div>
-        <div class="class-num">Grade 10</div>
-        <div class="class-label">Board Exam Mastery</div>
-        <div class="subject-list">
-          <span class="subj">Mathematics</span>
-          <span class="subj">Physics · Chemistry</span>
-          <span class="subj">Biology</span>
-          <span class="subj">Golden · NCERT Exemplar</span>
-          <span class="subj">Board Pattern Tests</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT / WHY -->
-<section id="about">
-  <div class="section-inner">
-    <div class="why-grid">
-      <div>
-        <div class="section-eyebrow reveal">Why Choose Us</div>
-        <h2 class="section-title reveal">University-Grade<br>Teaching for School</h2>
-        <p class="section-sub reveal" style="margin-bottom: 2rem;">10+ years of dedicated coaching experience combined with top academic credentials — making complex concepts simple and scores soar.</p>
-
-        <div class="why-list">
-          <div class="why-item reveal">
-            <div class="why-icon wi-saffron">🎓</div>
-            <div class="why-text">
-              <h3>Ex-University of Delhi Faculty</h3>
-              <p>M.A., M.B.A., Ex DU Faculty — academic depth from India's premier university, applied to make school concepts genuinely stick.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-icon wi-green">⭐</div>
-            <div class="why-text">
-              <h3>10+ Years of Teaching Experience</h3>
-              <p>Over a decade of coaching students across Grade 4–10, building proven methods that consistently improve results.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-icon wi-saffron">💻</div>
-            <div class="why-text">
-              <h3>Both Online &amp; Offline Classes</h3>
-              <p>Flexible learning modes — attend from the comfort of home or in our AC classroom at Sanchar Lok Apartment, IP Extension.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-icon wi-green">📖</div>
-            <div class="why-text">
-              <h3>All Major Reference Books Covered</h3>
-              <p>Ganita Prakash, NCERT, Exemplar, RD Sharma, Lakhmir Singh, Golden and more — comprehensive coverage across all major books.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-icon wi-saffron">🏆</div>
-            <div class="why-text">
-              <h3>Olympiad Preparation</h3>
-              <p>Special classes for Math and Science Olympiad preparation — building competitive edge alongside school curriculum.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-icon wi-green">👥</div>
-            <div class="why-text">
-              <h3>Small Batches &amp; AC Classrooms</h3>
-              <p>Curated small batch sizes for personalised attention, in a comfortable AC learning environment designed for focus.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-icon wi-saffron">📝</div>
-            <div class="why-text">
-              <h3>Regular Assignments &amp; Periodic Tests</h3>
-              <p>Systematic assignments and performance-tracking tests ensure consistent progress and exam readiness throughout the year.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="about-panel">
-          <h3>Ms. Meenakshi Aggarwal</h3>
-          <p class="du-note">M.A. · M.B.A. · Ex DU Faculty</p>
-
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">LLM — Master of Laws</div>
-              <div class="tl-sub">Advanced legal studies</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">LLB — Bachelor of Laws</div>
-              <div class="tl-sub">Legal foundations</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">M.A. — Master of Arts</div>
-              <div class="tl-sub">Post-graduate studies</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">M.B.A. — Business Administration</div>
-              <div class="tl-sub">Management & strategy</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">B.Com (Honours)</div>
-              <div class="tl-sub">University of Delhi</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">Faculty — University of Delhi</div>
-              <div class="tl-sub">Teaching at India's top university</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-title">10+ Years Coaching Experience</div>
-              <div class="tl-sub">Grade 4–10, Maths · Science · Abacus</div>
-            </div>
-          </div>
-
-          <div class="achievement-row">
-            <div class="ach">
-              <div class="a-icon">🥈</div>
-              <div class="a-label">Silver Medalist<br>University of Delhi</div>
-            </div>
-            <div class="ach">
-              <div class="a-icon">🏆</div>
-              <div class="a-label">Academic Award<br>Winner — DU</div>
-            </div>
-            <div class="ach">
-              <div class="a-icon">⭐</div>
-              <div class="a-label">10+ Years<br>Teaching Exp.</div>
-            </div>
-            <div class="ach">
-              <div class="a-icon">📍</div>
-              <div class="a-label">IP Extension<br>Delhi</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OFFERINGS -->
-<section class="offerings-bg" id="offerings">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal" style="color:var(--saffron-light)">What We Offer</div>
-    <h2 class="section-title reveal" style="color:var(--cream)">Complete Learning<br>Ecosystem</h2>
-    <p class="section-sub reveal">Everything a Class 6–9 CBSE student needs — under one roof, guided by one trusted teacher.</p>
-
-    <div class="offerings-grid">
-
-      <div class="offer-card reveal">
-        <div class="offer-top">
-          <div class="offer-icon">👥</div>
-          <div>
-            <div class="offer-title">Group Coaching Batches</div>
-            <div class="offer-type">Online &amp; Offline · Core Offering</div>
-          </div>
-        </div>
-        <p class="offer-desc">Small group batches in AC classrooms and online — Grade 4 to 10, Maths &amp; Science, with personalised attention for every student.</p>
-        <div class="offer-features">
-          <div class="of">CBSE-aligned curriculum</div>
-          <div class="of">Chapter-wise progression</div>
-          <div class="of">Both online &amp; offline modes</div>
-          <div class="of">AC classrooms · Small batches</div>
-        </div>
-      </div>
-
-      <div class="offer-card reveal">
-        <div class="offer-top">
-          <div class="offer-icon">🔢</div>
-          <div>
-            <div class="offer-title">Abacus Classes</div>
-            <div class="offer-type">Mental Maths · All Ages</div>
-          </div>
-        </div>
-        <p class="offer-desc">Abacus training to develop lightning-fast mental calculation, concentration, and memory skills — a lifelong academic advantage.</p>
-        <div class="offer-features">
-          <div class="of">Speed &amp; accuracy in calculation</div>
-          <div class="of">Improves concentration &amp; focus</div>
-          <div class="of">Boosts memory retention</div>
-          <div class="of">Suitable for all age groups</div>
-        </div>
-      </div>
-
-      <div class="offer-card reveal">
-        <div class="offer-top">
-          <div class="offer-icon">📚</div>
-          <div>
-            <div class="offer-title">All Major Books Covered</div>
-            <div class="offer-type">Comprehensive Coverage</div>
-          </div>
-        </div>
-        <p class="offer-desc">Ganita Prakash, NCERT, Exemplar, RD Sharma, Lakhmir Singh, Golden and more — students are covered across all reference books used in school.</p>
-        <div class="offer-features">
-          <div class="of">NCERT &amp; Exemplar (primary)</div>
-          <div class="of">RD Sharma &amp; Ganita Prakash</div>
-          <div class="of">Lakhmir Singh (Science)</div>
-          <div class="of">Golden &amp; other guides</div>
-        </div>
-      </div>
-
-      <div class="offer-card reveal">
-        <div class="offer-top">
-          <div class="offer-icon">🏆</div>
-          <div>
-            <div class="offer-title">Olympiad Preparation</div>
-            <div class="offer-type">Special Classes</div>
-          </div>
-        </div>
-        <p class="offer-desc">Dedicated olympiad preparation classes to help students excel in Maths and Science competitions at state and national levels.</p>
-        <div class="offer-features">
-          <div class="of">IMO &amp; NSO preparation</div>
-          <div class="of">Advanced problem solving</div>
-          <div class="of">Special focus sessions</div>
-          <div class="of">Past olympiad paper practice</div>
-        </div>
-      </div>
-
-      <div class="offer-card reveal">
-        <div class="offer-top">
-          <div class="offer-icon">📝</div>
-          <div>
-            <div class="offer-title">Assignments &amp; Periodic Tests</div>
-            <div class="offer-type">Assessment &amp; Tracking</div>
-          </div>
-        </div>
-        <p class="offer-desc">Regular assignments and scheduled tests to track progress, identify weak areas, and build strong exam temperament throughout the year.</p>
-        <div class="offer-features">
-          <div class="of">Chapter-wise assignments</div>
-          <div class="of">Periodic performance tests</div>
-          <div class="of">CBSE pattern mock papers</div>
-          <div class="of">Detailed result reviews</div>
-        </div>
-      </div>
-
-      <div class="offer-card reveal">
-        <div class="offer-top">
-          <div class="offer-icon">👨‍👩‍👧</div>
-          <div>
-            <div class="offer-title">Parent Communication</div>
-            <div class="offer-type">Engagement</div>
-          </div>
-        </div>
-        <p class="offer-desc">Regular progress updates and study guidance so parents stay informed and actively involved in their child's academic journey.</p>
-        <div class="offer-features">
-          <div class="of">Monthly progress reports</div>
-          <div class="of">WhatsApp updates</div>
-          <div class="of">Parent advisory sessions</div>
-          <div class="of">Study schedule guidance</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal">Parent Feedback</div>
-    <h2 class="section-title reveal">What Parents &<br>Students Say</h2>
-
-    <div class="testi-grid">
-
-      <div class="testi-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"My daughter's Maths marks went from 62 to 89 in one term. Meenakshi ma'am explains concepts so clearly — my daughter actually enjoys studying now."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">👩</div>
-          <div>
-            <div class="testi-name">Priya Sharma</div>
-            <div class="testi-role">Parent of Class 8 student</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"The teaching style is very different from regular coaching centres. It is more conceptual, and my son finally understands why things work, not just how."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">👨</div>
-          <div>
-            <div class="testi-name">Rakesh Gupta</div>
-            <div class="testi-role">Parent of Class 9 student</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Ma'am keeps us parents well informed. The monthly updates and WhatsApp messages make us feel involved. Batch size is perfect — not too crowded."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">👩</div>
-          <div>
-            <div class="testi-name">Sunita Verma</div>
-            <div class="testi-role">Parent of Class 7 student</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-bg" id="contact">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal">Get in Touch</div>
-    <h2 class="section-title reveal">Enrol Your Child<br>Today</h2>
-    <p class="section-sub reveal">Limited seats per batch. Reach out to confirm availability and discuss which batch suits your child best.</p>
-
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-
-        <div class="info-block">
-          <div class="info-icon">📞</div>
-          <div>
-            <div class="info-label">Phone / WhatsApp</div>
-            <div class="info-value">+91 7428453011</div>
-            <div class="info-sub">Call or WhatsApp for batch details</div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-icon">🌐</div>
-          <div>
-            <div class="info-label">Website</div>
-            <div class="info-value"><a href="https://www.rvmclasses.in" style="color:var(--saffron);text-decoration:none;">www.rvmclasses.in</a></div>
-            <div class="info-sub">Share this link with parents on WhatsApp</div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-icon">📍</div>
-          <div>
-            <div class="info-label">Location</div>
-            <div class="info-value">Sanchar Lok Apartment, IP Extension, Delhi</div>
-            <div class="info-sub">Exact directions shared on enquiry</div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-icon">🕐</div>
-          <div>
-            <div class="info-label">Batch Timings</div>
-            <div class="info-value">Morning & Evening Batches</div>
-            <div class="info-sub">Contact for current schedule & availability</div>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-icon">🏫</div>
-          <div>
-            <div class="info-label">Classes Offered</div>
-            <div class="info-value">Grade 4 to 10 · Abacus (CBSE)</div>
-            <div class="info-sub">Maths · Science · Online &amp; Offline</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="reveal">
-        <div class="enquiry-form">
-          <div class="form-title">Send an Enquiry</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Parent Name</label>
-              <input type="text" placeholder="Your full name">
-            </div>
-            <div class="form-group">
-              <label>Phone Number</label>
-              <input type="tel" placeholder="+91 XXXXX XXXXX">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Student's Class</label>
-              <select>
-                <option value="">Select class</option>
-                <option>Class 4</option>
-                <option>Class 5</option>
-                <option>Class 6</option>
-                <option>Class 7</option>
-                <option>Class 8</option>
-                <option>Class 9</option>
-                <option>Class 10</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Subject of Interest</label>
-              <select>
-                <option value="">Select subject</option>
-                <option>Maths + Science + Abacus (All)</option>
-                <option>Mathematics</option>
-                <option>Science</option>
-                <option>Abacus</option>
-                <option>Maths &amp; Science</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Message (Optional)</label>
-            <textarea placeholder="Any specific requirements or questions..."></textarea>
-          </div>
-          <button class="form-submit" onclick="handleSubmit()">💬 Send via WhatsApp</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">RVM <span>Classes</span></div>
     <p class="footer-tagline">CBSE Science &amp; Maths Coaching · Classes 4–10 · Delhi</p>
     <ul class="footer-links">
-      <li><a href="#classes">Classes</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#offerings">Offerings</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html#classes">Classes</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#offerings">Offerings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
     <div class="footer-bottom">
       <p>Ms. Meenakshi Aggarwal — M.A. · M.B.A. · Ex DU Faculty · Silver Medalist · Academic Award Winner</p>
@@ -1687,7 +1190,7 @@ function handleSubmit() {
   <button class="flash-close" onclick="dismissFlash()" title="Dismiss">✕</button>
   <span class="flash-new">New</span>
   🎓 Exciting Workshop launching soon at RVM Classes! Stay tuned for details.
-  <a href="#contact">Enquire Now →</a>
+  <a href="index.html#contact">Enquire Now →</a>
 </div>
 
 <!-- Announcement bar (top) -->
