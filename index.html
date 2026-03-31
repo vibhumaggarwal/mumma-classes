@@ -704,55 +704,44 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ─── WORKSHOP POPUP ─── */
-.workshop-popup-overlay {
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
-  animation: popupFadeIn 0.3s ease;
+/* ─── PHOTO RIBBON ─── */
+.photo-ribbon-container {
+  padding-top: 64px;
+  background: var(--ivory);
 }
-.workshop-popup-overlay.hidden { display: none; }
-@keyframes popupFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.workshop-popup {
-  position: relative;
-  max-width: 480px; width: 92%;
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+.photo-ribbon {
+  width: 100%;
   overflow: hidden;
-  animation: popupSlideUp 0.4s ease;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
 }
-@keyframes popupSlideUp {
-  from { opacity: 0; transform: translateY(40px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+.ribbon-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scroll-ribbon 30s linear infinite;
 }
-.workshop-popup img {
-  width: 100%; height: auto; display: block;
+.ribbon-item {
+  width: 200px;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(28,21,9,0.08); /* slight dark shadow */
 }
-.workshop-popup-close {
-  position: absolute; top: 10px; right: 10px;
-  width: 36px; height: 36px;
-  background: rgba(0,0,0,0.6); color: #fff;
-  border: none; border-radius: 50%;
-  font-size: 1.3rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-  z-index: 1;
+.ribbon-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.workshop-popup-close:hover { background: rgba(0,0,0,0.85); }
-.workshop-popup-cta {
-  display: block; text-align: center;
-  padding: 14px;
-  background: var(--saffron);
-  color: #fff; font-weight: 600; font-size: 1rem;
-  text-decoration: none;
-  letter-spacing: 0.03em;
-  transition: background 0.2s;
+@keyframes scroll-ribbon {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
 }
-.workshop-popup-cta:hover { background: var(--saffron-light); }
+@media (max-width: 600px) {
+  .ribbon-item { width: 140px; height: 100px; }
+}
 </style>
 </head>
 <body>
@@ -769,9 +758,34 @@ footer {
   </ul>
 </nav>
 
+<!-- PHOTO RIBBON -->
+<div class="photo-ribbon-container">
+  <div class="photo-ribbon">
+    <div class="ribbon-track">
+      <!-- Original Set -->
+      <div class="ribbon-item"><img src="images/media__1774810074051.jpg" alt="Workshop Snapshot 1"></div>
+      <div class="ribbon-item"><img src="images/media__1774810074108.jpg" alt="Workshop Snapshot 2"></div>
+      <div class="ribbon-item"><img src="images/media__1774810074119.jpg" alt="Workshop Snapshot 3"></div>
+      <div class="ribbon-item"><img src="images/media__1774811324965.png" alt="Workshop Snapshot 4"></div>
+      <div class="ribbon-item"><img src="images/media__1774811324990.png" alt="Workshop Snapshot 5"></div>
+      <div class="ribbon-item"><img src="images/media__1774811325007.png" alt="Workshop Snapshot 6"></div>
+      <div class="ribbon-item"><img src="images/media__1774811325043.png" alt="Workshop Snapshot 7"></div>
+      <div class="ribbon-item"><img src="images/media__1774811325060.png" alt="Workshop Snapshot 8"></div>
+      <!-- Duplicate Set for Seamless Scroll -->
+      <div class="ribbon-item"><img src="images/media__1774810074051.jpg" alt="Workshop Snapshot 1"></div>
+      <div class="ribbon-item"><img src="images/media__1774810074108.jpg" alt="Workshop Snapshot 2"></div>
+      <div class="ribbon-item"><img src="images/media__1774810074119.jpg" alt="Workshop Snapshot 3"></div>
+      <div class="ribbon-item"><img src="images/media__1774811324965.png" alt="Workshop Snapshot 4"></div>
+      <div class="ribbon-item"><img src="images/media__1774811324990.png" alt="Workshop Snapshot 5"></div>
+      <div class="ribbon-item"><img src="images/media__1774811325007.png" alt="Workshop Snapshot 6"></div>
+      <div class="ribbon-item"><img src="images/media__1774811325043.png" alt="Workshop Snapshot 7"></div>
+      <div class="ribbon-item"><img src="images/media__1774811325060.png" alt="Workshop Snapshot 8"></div>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="padding-top: 2rem; min-height: calc(100vh - 200px);">
   <div class="hero-left">
     <div class="badge">10+ Years of Teaching Experience · Delhi</div>
 
@@ -1769,27 +1783,7 @@ setTimeout(() => {
 }, 8000);
 </script>
 
-<!-- Robotics Workshop Popup -->
-<div class="workshop-popup-overlay" id="workshopPopup">
-  <div class="workshop-popup">
-    <button class="workshop-popup-close" id="workshopClose" aria-label="Close popup">&times;</button>
-    <img src="robotics-workshop-catalog.png" alt="RVM Classes – Robotics Workshop for Kids: Learn to Build &amp; Program Your Own Robot with LEGO Mindstorms EV3. Saturday 28th March, 4:00 PM – 5:30 PM at Sanchar Lok Apartment, IP Extension. Contact 92127 60506.">
-    <a href="https://wa.me/919212760506?text=Hi%2C%20I%20am%20interested%20in%20the%20Robotics%20Workshop%20for%20Kids.%20Please%20share%20the%20details." class="workshop-popup-cta" target="_blank" rel="noopener">Register Now via WhatsApp</a>
-  </div>
-</div>
-<script>
-(function(){
-  var overlay = document.getElementById('workshopPopup');
-  var closeBtn = document.getElementById('workshopClose');
-  function closePopup(){
-    overlay.classList.add('hidden');
-  }
-  closeBtn.addEventListener('click', closePopup);
-  overlay.addEventListener('click', function(e){
-    if(e.target === overlay) closePopup();
-  });
-})();
-</script>
+
 
 </body>
 </html>
