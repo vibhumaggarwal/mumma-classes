@@ -688,13 +688,89 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 3rem 2rem 2rem; }
-  .hero-right { padding: 0 2rem 3rem; }
+  .hero-left { padding: 2rem 1.2rem 1rem; }
+  .hero-right { padding: 0 1.2rem 2rem; }
   .hero-card { max-width: 100%; }
   .why-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
   .form-row { grid-template-columns: 1fr; }
+  .hero-tagline { font-size: 0.95rem; }
+  .hero-btns { flex-direction: column; gap: 0.7rem; }
+  .hero-btns .btn-primary, .hero-btns .btn-outline { text-align: center; justify-content: center; }
+  section { padding: 3rem 1.2rem; }
+}
+
+/* ─── HAMBURGER ─── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 101;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ─── MOBILE NAV ─── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 64px; left: 0; right: 0; bottom: 0;
+  background: rgba(250,247,240,0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 98;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.mobile-nav ul li a {
+  display: block;
+  padding: 1rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s, padding-left 0.2s;
+}
+.mobile-nav ul li a:hover { color: var(--saffron); padding-left: 0.5rem; }
+.mobile-nav ul li:last-child a { border-bottom: none; }
+.mobile-nav .mob-enrol {
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-top: 2rem;
+  background: var(--saffron); color: white;
+  padding: 1rem 2rem; border-radius: 50px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(224,123,0,0.35);
+  width: 100%;
+}
+.mobile-nav .mob-ai {
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-top: 0.8rem;
+  background: var(--ink); color: var(--saffron);
+  padding: 0.8rem 2rem; border-radius: 50px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 700;
+  text-decoration: none;
+  width: 100%;
 }
 
 /* ─── SCROLL REVEAL ─── */
@@ -757,7 +833,22 @@ footer {
     <li><a href="doubt-bot.html">Ask AI ✦</a></li>
     <li><a href="#contact" class="nav-cta">Enrol Now</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation menu">
+  <ul>
+    <li><a href="#classes" class="mob-link">Classes</a></li>
+    <li><a href="#about" class="mob-link">About</a></li>
+    <li><a href="#offerings" class="mob-link">Offerings</a></li>
+    <li><a href="gallery.html" class="mob-link">Gallery</a></li>
+  </ul>
+  <a href="doubt-bot.html" class="mob-ai">✦ Ask AI Tutor</a>
+  <a href="#contact" class="mob-enrol mob-link">Enrol Now →</a>
+</div>
 
 <!-- PHOTO RIBBON -->
 <div class="photo-ribbon-container">
@@ -1708,8 +1799,9 @@ function handleSubmit() {
 .call-strip a.cs-btn:hover { background: #c9923a; }
 
 @media (max-width: 600px) {
-  .wa-fab { bottom: 72px; right: 16px; }
-  .call-strip { right: 0; justify-content: space-between; padding: 0.7rem 1rem; }
+  .wa-fab { bottom: 68px; right: 12px; }
+  .call-strip { right: 0; justify-content: space-between; padding: 0.6rem 1rem; }
+  .call-strip .cs-detail { display: none; }
   .wa-tooltip { max-width: 190px; }
 }
 </style>
@@ -1728,11 +1820,7 @@ function handleSubmit() {
   <a href="https://wa.me/917428453011?text=Hello%20RVM%20Classes%2C%20I%20want%20to%20know%20about%20batch%20details." target="_blank">Message Now</a>
 </div>
 
-<!-- DNS Setup Banner (for owner — dismiss after setup) -->
-<div id="dnsBanner" style="background:#1a5fa8;color:white;padding:0.7rem 1.5rem;font-size:0.8rem;font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
-  <span>🔧 <strong>Owner Setup:</strong> Connect rvmclasses.in → Go to Netlify → Domain Settings → Add <strong>rvmclasses.in</strong> → Copy the 2 nameservers → Paste in Bigrock DNS panel. Live in ~1 hour!</span>
-  <button onclick="document.getElementById('dnsBanner').style.display='none'" style="background:rgba(255,255,255,0.2);border:none;color:white;padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.75rem;font-weight:700;">✕ Dismiss</button>
-</div>
+
 
 <!-- WhatsApp FAB -->
 <div class="wa-fab" id="waFab">
@@ -1760,7 +1848,7 @@ function handleSubmit() {
 
 <!-- Call strip (bottom) -->
 <div class="call-strip">
-  <div class="cs-text">📞 <strong>+91 7428453011</strong> · Ms. Meenakshi Aggarwal · RVM Classes, IP Extension</div>
+  <div class="cs-text">📞 <strong>+91 7428453011</strong><span class="cs-detail"> · Ms. Meenakshi Aggarwal · RVM Classes, IP Extension</span></div>
   <a class="cs-btn" href="tel:+917428453011">📞 Call Now</a>
 </div>
 
@@ -1799,6 +1887,27 @@ setTimeout(() => {
   if (t) t.style.opacity = '0';
   setTimeout(() => { if(t) t.style.display = 'none'; }, 500);
 }, 8000);
+
+// Hamburger menu
+const hamburger = document.getElementById('navHamburger');
+const mobileNav = document.getElementById('mobileNav');
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // Close on link click
+  mobileNav.querySelectorAll('.mob-link').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
 </script>
 
 
